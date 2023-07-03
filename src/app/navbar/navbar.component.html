@@ -1,0 +1,7 @@
+<nav class="navbar navbar-light" style="padding: 5px;border-bottom: 1px black solid;background-color: #e3f2fd;">
+    <a routerLink="/" class="navbar-brand" style="display: flex; gap: 1px; align-items: center;">
+        <img class src="../../assets/logo.png" width="30" height="30" />
+        <span>CMS interview demo</span>
+    </a>
+    <a *ngIf="routeUrl!=='/new'" class="btn btn-primary" routerLink="/new">Add Student</a>
+</nav>

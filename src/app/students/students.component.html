@@ -1,0 +1,29 @@
+<div class="form-floating mb-3">
+    <input type="text" class="form-control" id="filter" placeholder="Start entering to filter the results"
+        [(ngModel)]="filter" (ngModelChange)="getStudents()">
+    <label for="filter">Filter by Name</label>
+</div>
+<p *ngIf="students.length>0">Showing {{students.length}} entries</p>
+<p *ngIf="students.length===0">No entries found</p>
+<table *ngIf="students.length!==0" class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" *ngFor="let head of studentHeader">
+                {{head | titlecase}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of students">
+            <td scope="row" *ngFor="let head of studentHeader">
+                <span *ngIf="head!=='delete' && head!=='edit'">{{getPropFromObj(row, head)}}</span>
+                <span *ngIf="head==='delete'">
+                    <button class="btn btn-danger" (click)="remove(row)">{{head | titlecase}}</button>
+                </span>
+                <span *ngIf="head==='edit'">
+                    <a class="btn btn-secondary" [routerLink]="'/edit/'+row._id">{{head | titlecase}}</a>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

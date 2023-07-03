@@ -1,0 +1,26 @@
+<h2>{{mode | titlecase}} student</h2>
+<div (keyup.enter)="submit()">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" [(ngModel)]="name" required>
+        <label for="name">Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="program" placeholder="e.g., BSCS" [(ngModel)]="program" required>
+        <label for="program">Program</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="department" placeholder="name@example.com" [(ngModel)]="department"
+            required>
+        <label for="department">Department</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="number" max="8" min="1" class="form-control" id="semester" placeholder="name@example.com"
+            [(ngModel)]="semester" required>
+        <label for="semester">Semester</label>
+    </div>
+
+    <button class="btn btn-success" (click)="submit()">Submit</button>
+</div>
